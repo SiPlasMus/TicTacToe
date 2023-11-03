@@ -222,30 +222,15 @@ namespace TicTacToe
                 isGameOver();
             }
         }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        
+        Point lastPoint;
+        
+        private void label1_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
-        //static void RestartApp(int pid, string applicationName)
-        //{
-        //    // Wait for the process to terminate
-        //    Process process = null;
-        //    try
-        //    {
-        //        process = Process.GetProcessById(pid);
-        //        process.WaitForExit(1000);
-        //    }
-        //    catch (ArgumentException ex)
-        //    {
-        //        // ArgumentException to indicate that the 
-        //        // process doesn't exist?   LAME!!
-        //    }
-        //    Process.Start(applicationName, "");
-        //}
-
-        private void restartToolStripMenuItem_Click(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)
         {
             for (int i = 1; i < buttons.Length; i++)
             {
@@ -255,14 +240,12 @@ namespace TicTacToe
             }
         }
 
-        
-        Point lastPoint;
-        private void menuStrip1_MouseDown(object sender, MouseEventArgs e)
+        private void label3_MouseDown(object sender, MouseEventArgs e)
         {
             lastPoint = new Point(e.X, e.Y);
         }
 
-        private void menuStrip1_MouseMove(object sender, MouseEventArgs e)
+        private void label3_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -272,9 +255,14 @@ namespace TicTacToe
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void label3_MouseEnter(object sender, EventArgs e)
         {
-            this.Close();
+            label3.ForeColor = Color.Green;
+        }
+
+        private void label3_MouseLeave(object sender, EventArgs e)
+        {
+            label3.ForeColor = Color.Black;
         }
     }
 }
